@@ -2,7 +2,7 @@
 
 <p>Les données du formulaire seront envoyées vers le serveur en méthode HTTP "post" et seront disponibles côté serveur dans la variable PHP $_POST</p>
 
-<form action="" method="post">
+<form action="<?= BASE_URL ?>articles/add" method="post">
   <label for="article_title">Titre : </label>
   <input type="text" name="article_title">
   <label for="article_content">Contenu : </label>
