@@ -77,7 +77,7 @@ class Article
       $query = $this->pdo->prepare('DELETE FROM articles WHERE article_id = ?');
       return $query->execute([$id]);
     } catch (Exception $e) {
-      print "Erreur fonction add($data) dans le modèle Article : " . $e->getMessage() . "<br/>";
+      print "Erreur fonction delete dans le modèle Article : " . $e->getMessage() . "<br/>";
       die();
     }
   }
