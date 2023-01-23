@@ -24,4 +24,28 @@ class Home
 
     $this->index();
   }
+
+  function edit($id)
+  {
+
+    if (isset($_POST['edition_article'])) {
+      $article_model = new Article();
+      $article_model->update($_POST);
+      return $this->index();
+    }
+
+    $article_model = new Article();
+    $article_model = $article_model->get($id);
+
+    $view_aside = new View([], ['form' => 'articles/form', 'get' => 'blocks/link_get_parameters', 'session' => 'blocks/link_session_variables'], 'aside', false);
+
+    new View(['article' => $article_model], ['content' => 'articles/edit', 'aside' => $view_aside]);
+  }
+
+  function delete($id)
+  {
+    $article_model = new Article();
+    $article_model->delete($id);
+    $this->index();
+  }
 }
