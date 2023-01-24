@@ -1,23 +1,15 @@
 <?php
 
-//On inclut la classe Route
-require_once 'app/Route.php';
+\App\Route::get([
+  '' => ['\App\Controllers\Home','index'],
 
-//On doit inclure tous les Controllers dont on veut disposer
-require_once 'app/Controllers/Home.php';
-require_once 'app/Controllers/Articles.php';
-require_once 'app/Controllers/Newsletters.php';
+  'articles' => ['\App\Controllers\Articles','index'],
+  'articles/add' => ['\App\Controllers\Articles','add'],
+  'articles/delete/{id}' => ['\App\Controllers\Articles','delete'],
+  'articles/edit/{id}' => ['\App\Controllers\Articles','edit'],
 
-Route::get([
-  '' => ['Home','index'],
-
-  'articles' => ['Articles','index'],
-  'articles/add' => ['Articles','add'],
-  'articles/delete/{id}' => ['Articles','delete'],
-  'articles/edit/{id}' => ['Articles','edit'],
-
-  'newsletter' => ['Newsletters','index'],
-  'newsletter/add' => ['Newsletters','add'],
-  'newsletter/delete/{id}' => ['Newsletters','delete'],
-  'newsletter/edit/{id}' => ['Newsletters','edit'],
+  'newsletter' => ['\App\Controllers\Newsletter','index'],
+  'newsletter/add' => ['\App\Controllers\Newsletter','add'],
+  'newsletter/delete/{id}' => ['\App\Controllers\Newsletter','delete'],
+  'newsletter/edit/{id}' => ['\App\Controllers\Newsletter','edit'],
 ]);

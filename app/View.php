@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class View
 {
   protected $template; //nom du fichier template de la view, par défaut ce sera template.php
@@ -47,7 +49,7 @@ class View
         foreach($this->sections[$section_name] as $filename) {
           echo $this->renderOutput($filename);
         }
-      } elseif (is_a($this->sections[$section_name], 'View')) { //Sinon si la valeur contenu dans $this->sections[$section_name] est un objet de type View
+      } elseif (is_a($this->sections[$section_name], get_class($this))) { //Sinon si la valeur contenu dans $this->sections[$section_name] est un objet de type View
         $this->sections[$section_name]->render(); //On appelle la fonction render()
       }
     }

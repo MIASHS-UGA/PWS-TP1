@@ -1,4 +1,8 @@
 <?php
+
+namespace App\Models;
+
+use Exception;
 class Newsletter
 {
   protected $pdo;
@@ -20,7 +24,7 @@ class Newsletter
 
       $query = $this->pdo->prepare('SELECT * FROM newsletter');
       $query->execute();
-      return $query->fetchAll(PDO::FETCH_CLASS);
+      return $query->fetchAll(\PDO::FETCH_CLASS);
     } catch (Exception $e) {
       print "Erreur fonction list() dans le modèle Newsletter : " . $e->getMessage() . "<br/>";
       die();

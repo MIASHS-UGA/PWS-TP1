@@ -1,5 +1,6 @@
 <?php
 
+namespace App;
 class Route
 {
   public static function get($routes = [])

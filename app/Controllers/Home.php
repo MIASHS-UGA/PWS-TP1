@@ -1,20 +1,19 @@
 <?php
 
-require_once 'app/Models/Article.php';
-require_once 'app/View.php';
+namespace App\Controllers;
 
 class Home
 {
   function index()
   {
-    $article_model = new Article();
+    $article_model = new \App\Models\Article();
     $articles = $article_model->list();
 
-    $newsletter_model = new Newsletter();
+    $newsletter_model = new \App\Models\Newsletter();
     $newsletters = $newsletter_model->list();
 
-    $view_content = new View(['articles' => $articles, 'newsletters' => $newsletters], ['content' => ['articles/list', 'newsletters/list']], 'content', false);
-    $view_aside = new View([], ['form' => ['articles/form', 'newsletters/form']], 'aside', false);
-    new View([], ['content' => $view_content, 'aside' => $view_aside]);
+    $view_content = new \App\View(['articles' => $articles, 'newsletters' => $newsletters], ['content' => ['articles/list', 'newsletters/list']], 'content', false);
+    $view_aside = new \App\View([], ['form' => ['articles/form', 'newsletters/form']], 'aside', false);
+    new \App\View([], ['content' => $view_content, 'aside' => $view_aside]);
   }
 }
