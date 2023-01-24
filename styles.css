@@ -5,8 +5,8 @@ header {
   border-bottom: 2px solid #EAE0DA;
 }
 
-section.articles {
-  grid-area: articles;
+section.content {
+  grid-area: content;
   background-color: #A0C3D2;
   padding: 20px;
   border-radius: 15px;
@@ -37,7 +37,7 @@ body {
   display: grid;
   grid-template-areas:
     'header header'
-    'articles aside'
+    'content aside'
     'footer footer';
   gap: 40px;
   padding: 40px;

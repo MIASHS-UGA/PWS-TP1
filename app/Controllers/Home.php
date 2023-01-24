@@ -10,42 +10,11 @@ class Home
     $article_model = new Article();
     $articles = $article_model->list();
 
-    $view_aside = new View([], ['form' => 'articles/form', 'get' => 'blocks/link_get_parameters', 'session' => 'blocks/link_session_variables'], 'aside', false);
+    $newsletter_model = new Newsletter();
+    $newsletters = $newsletter_model->list();
 
-    new View(['articles' => $articles], ['content' => 'articles/list', 'aside' => $view_aside]);
-  }
-
-  function add()
-  {
-    if (isset($_POST['ajout_article'])) {
-      $article_model = new Article();
-      $article_model->add($_POST);
-    }
-
-    $this->index();
-  }
-
-  function edit($id)
-  {
-
-    if (isset($_POST['edition_article'])) {
-      $article_model = new Article();
-      $article_model->update($_POST);
-      return $this->index();
-    }
-
-    $article_model = new Article();
-    $article_model = $article_model->get($id);
-
-    $view_aside = new View([], ['form' => 'articles/form', 'get' => 'blocks/link_get_parameters', 'session' => 'blocks/link_session_variables'], 'aside', false);
-
-    new View(['article' => $article_model], ['content' => 'articles/edit', 'aside' => $view_aside]);
-  }
-
-  function delete($id)
-  {
-    $article_model = new Article();
-    $article_model->delete($id);
-    $this->index();
+    $view_content = new View(['articles' => $articles, 'newsletters' => $newsletters], ['content' => ['articles/list', 'newsletters/list']], 'content', false);
+    $view_aside = new View([], ['form' => ['articles/form', 'newsletters/form']], 'aside', false);
+    new View([], ['content' => $view_content, 'aside' => $view_aside]);
   }
 }

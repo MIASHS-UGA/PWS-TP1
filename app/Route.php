@@ -19,7 +19,7 @@ class Route
 
     if (key_exists($path_controller, $routes)) { //On regarde si l'url existe dans le tableau $routes
 
-      $controller_name = $routes[$path_controller][0]; //on récupère le nom du Controller
+      $controller_name = ucfirst($routes[$path_controller][0]); //on récupère le nom du Controller
       $action_name = $routes[$path_controller][1]; //on récupère le nom de l'action
 
       if (class_exists($controller_name) and method_exists($controller_name, $action_name)) { //On teste si le controller et la fonction existent
