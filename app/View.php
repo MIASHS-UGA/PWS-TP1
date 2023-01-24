@@ -20,13 +20,6 @@ class View
   function render()
   {
     echo $this->renderOutput($this->template);
-
-    // ob_start(); //ouvre un buffer pour capturer un output (l'output peut être du html ou du texte dans les fichiers ainsi que du code php echo)
-    // extract($this->data); //extrait les variables pour qu'elles soient disponibles dans les templates directement
-    // require 'resources/views/' . $this->template . '.php'; //inclusion du fichier squelette de la view, par défaut resources/views/template.php
-    // $str = ob_get_contents(); //récupère l'output généré sous forme de string
-    // ob_end_clean(); //nettoie et ferme le buffer d'output
-    // echo $str; //affiche la string générée
   }
 
   /**
@@ -66,11 +59,11 @@ class View
     }
 
     //Sinon on génère l'affichage, même méthode que dans la fonction render()
-    ob_start();
-    extract($this->data);
-    require 'resources/views/' . $filename . '.php';
-    $str = ob_get_contents();
-    ob_end_clean();
-    return $str;
+    ob_start(); //ouvre un buffer pour capturer un output (l'output peut être du html ou du texte dans les fichiers ainsi que du code php echo)
+    extract($this->data); //extrait les variables pour qu'elles soient disponibles dans les templates directement
+    require 'resources/views/' . $filename . '.php'; //inclusion du fichier squelette de la view, par défaut resources/views/template.php
+    $str = ob_get_contents(); //récupère l'output généré sous forme de string
+    ob_end_clean(); //nettoie et ferme le buffer d'output
+    return $str; //renvoie la string générée
   }
 }
