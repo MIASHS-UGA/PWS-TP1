@@ -5,6 +5,16 @@ header {
   border-bottom: 2px solid #EAE0DA;
 }
 
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 10px;
+}
+
 section.content {
   grid-area: content;
   background-color: #A0C3D2;

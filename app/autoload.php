@@ -3,7 +3,7 @@
 function autoload($class)
 {
   //Liste des répertoires à explorer pour essayer de trouver la classe
-  $folders = ['app/', 'app/Controllers/', 'app/Models/'];
+  $folders = ['app/', 'app/Controllers/', 'app/Models/', 'app/Repositories/'];
 
   //Nettoyage du nom de la classe
   //Le nom de la class appellée avec le namespace est du type "App\Models\Article" pour une classe Article

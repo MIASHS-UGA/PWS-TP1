@@ -14,7 +14,7 @@
 <body>
 
   <header>
-    <h1>Programmation Web Serveur - TP1 - Introduction au PHP</h1>
+    <h1>Programmation Web Serveur - PHP / MVC / Repository</h1>
     <nav><ul>
       <li><a href="<?= BASE_URL ?>">Home</a></li>
       <li><a href="<?= BASE_URL ?>articles">Articles</a></li>
